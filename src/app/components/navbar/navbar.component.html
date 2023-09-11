@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+      <img src="path/to/logo.png" width="30" height="30" class="d-inline-block align-top" alt=""
+      [routerLink]="['/' + AppRoutes.HOME]"> Dr Automobile
+  </a>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home', AppRoutes.SEARCH]">Cerca</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home', AppRoutes.SUPPLIERS]">Fornitori</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home', AppRoutes.TRANSCODE]">Transcodifiche</a>
+          </li>
+      </ul>
+  </div>
+  <div class="navbar-text ml-auto user-profile">
+      Nome e Cognome
+      <img src="path/to/avatar.png" width="30" height="30" class="d-inline-block align-top" alt="">
+  </div>
+</nav>
+
+
+

@@ -1,0 +1,31 @@
+<div class="container-lg">
+  <div class="row">
+    <div class="col">
+      <table class="table bg-white">
+        <thead>
+          <tr class="border-tr">
+            <th scope="col">Nome fornitore</th>
+            <th scope="col">Ragione sociale</th>
+            <th scope="col">Codice</th>
+            <th scope="col">Indirizzo email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-tr" *ngFor="let supplier of suppliersInput"
+          (click)="openSupplierDetails(supplier)">
+            <td>{{ supplier.supplierName }}</td>
+            <td>{{ supplier.businessName }}</td>
+            <td>{{ supplier.code }}</td>
+            <td>{{ supplier.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

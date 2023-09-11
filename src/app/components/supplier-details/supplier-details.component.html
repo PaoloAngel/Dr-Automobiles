@@ -1,0 +1,84 @@
+
+<table class="table border-box" *ngIf="isSupplierDetailsShown">
+  <tbody class="bg-white"  style="height: 600px;">
+       <!-- // DATA SUPPLIER -->
+    <section class="row p-4">
+      <div class="col-12">
+        <p class="title-section">Dati fornitore</p>
+      </div>
+      <div class="col-6 mt-2">
+        <label for="firstName" class="form-label">Nome</label>
+        <input type="text" class="form-control" aria-label="Supplier name" [value]="supplier?.supplierName">
+      </div>
+      <div class="col-6 mt-2">
+        <label for="firstName" class="form-label">Fornitore</label>
+        <input type="text" class="form-control" aria-label="Business name" [value]="supplier?.businessName">
+      </div>
+
+      <div class="col-6 mt-2">
+        <label for="firstName" class="form-label">Codice</label>
+        <input type="text" class="form-control" aria-label="Code" [value]="supplier?.code">
+      </div>
+      <div class="col-6 mt-2">
+        <label for="firstName" class="form-label">Email</label>
+        <input type="text" class="form-control" aria-label="Email" [value]="supplier?.email">
+      </div>
+    </section>
+       <!-- // DATA SUPPLIER -->
+
+    <hr class="border border-1 opacity-50 ml-4 mr-4">
+
+      <!-- APIKEY DATA SUPPLIER -->
+
+    <section class="row p-4">
+      <div class="col-12">
+        <p class="title-section">Scegliere modalità di caricamento dati</p>
+      </div>
+      <div class="col-6 mt-2">
+        <label for="firstName" class="form-label">Host</label>
+        <input type="text" class="form-control" [value]="supplier?.host">
+      </div>
+      <div class="col-6 mt-2">
+        <label for="firstName" class="form-label">Endpoint</label>
+        <input type="text" class="form-control" aria-label="Supplier name" [value]="supplier?.endPoint">
+      </div>
+
+      <div class="col-6 mt-2">
+        <label class="form-label">Autenticazione</label>
+        <select class="form-control" aria-label="Disabled select example" [(ngModel)]="selectedAuthApi">
+            <option *ngFor="let auth of supplier?.authApi" [value]="auth">{{ auth }}</option>
+        </select>
+    </div>
+
+      <div class="col-6 mt-2">
+        <label for="firstName" class="form-label">ApiKey</label>
+        <input type="text" class="form-control" aria-label="Supplier name" [value]="supplier?.apiKey">
+      </div>
+      <div class="col-12 mt-2">
+        <label for="firstName" class="form-label">Handler</label>
+        <input type="text" class="form-control" aria-label="Supplier name" [value]="supplier?.handler">
+      </div>
+    </section>
+
+    <!-- // APIKEY DATA SUPPLIER -->
+
+    <section class="d-flex justify-content-end p-4">
+      <button type="button" class="btn delete-btn mr-3" (click)="onDelete()">Annulla</button>
+      <button type="button" class="btn save-btn">Salva</button>
+    </section>
+
+  </tbody>
+</table>
+
+<table class="table bg-white border-box" *ngIf="!isSupplierDetailsShown">
+  <tbody class="" >
+    <section class="d-flex align-items-center justify-content-center flex-column ml-5 ml-5" style="height: 600px;">
+      <p class="fw-semibold text-center ml-5 mr-5">Seleziona il fornitore della lista a sinistra per effetture le mofiche</p>
+      <p class="fw-semibold">oppure</p>
+
+      <button type="button" class="btn btn-dark new-supplier-btn" (click)="onAddNewSupplier()">Aggiungi nuovo fornitore</button>
+
+    </section>
+  </tbody>
+
+

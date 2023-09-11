@@ -1,0 +1,28 @@
+
+<div class="container-lg-12 mt-4 ml-5 mr-5">
+  <div class="row">
+
+    <!-- Suppliers List -->
+    <div class="col-lg-7 col-md-6 col-12">
+      <app-suppliers-list
+        [suppliersInput]="suppliers"
+        (supplierSelectedOutPut)="onSupplierSelected($event)">
+      </app-suppliers-list>
+    </div>
+
+    <!-- Supplier Details -->
+    <div class="col-lg-5 col-md-6 col-12">
+      <app-supplier-details
+        [supplier]="selectedSupplier"
+        [isSupplierDetailsShown]="isSupplierDetailsShown"
+        (hideSupplierDetails)="hideSupplierDetails()"
+        (addNewSupplier)="onAddNewSupplier()">
+      </app-supplier-details>
+    </div>
+
+  </div>
+</div>
+
+
+
+

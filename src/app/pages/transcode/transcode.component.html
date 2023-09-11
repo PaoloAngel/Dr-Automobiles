@@ -1,0 +1,35 @@
+
+<div class="container-lg-6 mt-4 ml-5 mr-5">
+  <!-- Search bar -->
+  <div class="row">
+    <div class="col-lg col-md d-flex justify-content-end">
+      <div>
+        <app-transcodes-search
+        (searchResultsOutput)="getSearchResults($event)"
+        >
+      </app-transcodes-search>
+      </div>
+    </div>
+  </div>
+
+  <!-- Transcode List -->
+  <div class="row">
+    <div class="col-lg-12 col-md-6 col-12">
+      <app-transcodes-list
+      [transCodeInput]="transCode"
+      >
+    </app-transcodes-list>
+    </div>
+  </div>
+</div>
+
+
+<!-- Upload bar -->
+<div class="container-fluid mt-4"></div>
+ <div class="row fixed-bottom  ">
+  <div class="col-lg col-md-6 col-12">
+    <div>
+      <app-upload-transcodifica></app-upload-transcodifica>
+    </div>
+</div>
+</div>

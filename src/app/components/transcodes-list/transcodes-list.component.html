@@ -1,0 +1,31 @@
+<div class="container-lg">
+  <div class="row">
+    <div class="col">
+      <table class="table bg-white">
+        <thead>
+          <tr class="border-tr">
+            <th scope="col">Modello</th>
+            <th scope="col">Nome Pezzo</th>
+            <th scope="col">Numero Pezzo</th>
+            <th scope="col">Transcodifica</th>
+            <th scope="col">Fornitore</th>
+            <th scope="col" class="category-text">Categoria</th>
+            <th scope="col">Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="data-list-row" *ngFor="let transCode of transCodeInput"
+          (click)="openTransCodeDetails()">
+            <td>{{ transCode.itemModel }}</td>
+            <td>{{ transCode.itemName }}</td>
+            <td>{{ transCode.itemNumber }}</td>
+            <td><input type="number" [(ngModel)]="transCode.itemTransCodified" class="form-control input" readonly></td>
+            <td>{{ transCode.itemSupplier }}</td>
+            <td class="category-text">{{ transCode.itemCategory }}</td>
+            <td>{{ transCode.itemNote }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

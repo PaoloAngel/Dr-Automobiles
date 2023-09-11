@@ -1,0 +1,29 @@
+
+.data-list-row{
+  border: 1px solid #dee2e6;
+}
+
+.input {
+  font-size: 0.90rem;
+  width: 200px;
+  background-color: white !important;
+  border: 1px solid #dee2e6 !important;
+}
+
+.table tr {
+  cursor: pointer;
+}
+
+
+thead th {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+tbody td {
+  font-size: 0.90rem;
+}
+
+.category-text {
+  text-align: center;
+}

@@ -1,0 +1,21 @@
+.search-title{
+  font-size: 0.90rem;
+}
+
+.input {
+  font-size: 0.90rem;
+  width: 280px;
+  background-color: white !important;
+}
+
+.input-group-custom .search-title,
+.input-group-custom .form-control,
+.input-group-custom .input-group-text {
+  height: 38px;
+}
+
+.input-group-custom .search-title,
+.input-group-custom .input-group-text i {
+  line-height: 38px;
+}
+

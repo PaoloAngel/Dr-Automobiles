@@ -1,0 +1,30 @@
+.border-box {
+  border: 1px solid #dee2e6;
+}
+
+
+
+/* BUTTONS */
+
+.btn-upload,
+.btn-download,
+.btn-delete,
+.btn-save{
+  color: rgb(12, 3, 57);
+  font-size: .90rem;
+  font-weight: 300;
+  border: 1px solid rgb(12, 3, 57);
+  background-color: white;
+  padding: 0.40rem 1.5rem;
+  border-radius: 0px;
+}
+
+.btn-save{
+  background-color: black;
+  color: white;
+}
+
+.btn-save:hover{
+  background-color: rgb(12, 3, 57);
+}
+

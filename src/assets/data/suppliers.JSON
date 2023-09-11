@@ -1,0 +1,31 @@
+{
+  "mockSuppliers": [
+    {
+      "id": 1,
+      "supplierName": "Lee Company",
+      "businessName": "lee Company SPA",
+      "code": "123xee",
+      "email": "lee@gmail.com",
+      "avatar": "put URL",
+      "host": "Mic Host",
+      "endPoint": "http://michost:9045/services/data01",
+      "authApi":["apiKey1","apiKey2", "apiKey3"],
+      "apiKey": 234323456,
+      "handler": "handler"
+    },
+    {
+      "id": 2,
+      "supplierName": "Motor INC",
+      "businessName": "Motor INC Limited.,",
+      "code": "123wer",
+      "email": "motor.inc@gmail.com",
+      "avatar": "put URL",
+      "host": "Back Host",
+      "endPoint": "http://backhost:9045/services/data02",
+      "authApi": "apiKey",
+      "apiKey": 342323456,
+      "handler": "handler"
+    }
+  ]
+}
+

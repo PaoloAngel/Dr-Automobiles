@@ -1,0 +1,37 @@
+<div class="main-container container-fluid">
+  <div class="row h-100">
+    <div class="col-md-7 bg-danger h-100 p-0">
+      <!-- LEFT SIDE IMAGE -->
+      <section class="bg-image-slide">
+        <!-- Content here (if any) -->
+      </section>
+    </div>
+
+
+    <div class="col-md-5 bg-white h-100 d-flex align-items-center justify-content-center">
+      <!-- RIGHT SIDE FORM SECTION -->
+      <section class="col-6">
+        <form [formGroup]="loginForm">
+          <div class="mb-4 text-center">
+          <img class="dr-logo" src="/assets/images/DR-logo.png" alt="logo-dr">
+          </div>
+          <div class="mb-2">
+            <label for="username" class="form-label">Nome utente</label>
+            <input class="form-control" type="text" id="username" formControlName="username">
+          </div>
+          <div class="mb-2">
+            <label for="password" class="form-label">Password</label>
+            <input class="form-control" type="password" id="password" formControlName="password">
+          </div>
+        </form>
+        <div class="mb-2 text-center pt-4">
+          <button type="button" class="btn btn-send"
+          (click)="onSubmitLoginForm()"
+          >
+          Accedi</button>
+        </div>
+      </section>
+    </div>
+
+</div>
+

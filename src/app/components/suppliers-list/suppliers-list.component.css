@@ -1,0 +1,17 @@
+.border-tr {
+  border: 1px solid #dee2e6;
+}
+
+.table tr {
+  cursor: pointer;
+}
+
+
+thead th {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+tbody td {
+  font-size: 0.90rem;
+}
