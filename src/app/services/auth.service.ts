@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IUserPayload, mockUserPayload } from '../models/userPayload';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { jwtToken } from '../environments/mockJWT';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 
@@ -19,15 +20,24 @@ export class AuthService {
       userPayload.password === mockUserPayload.password;
 
     if (loginSuccess) {
-      const mockToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+      const mockToken = jwtToken.mockToken
       const tokenCreationTime = new Date().getTime();
       localStorage.setItem('token_creation_time', tokenCreationTime.toString());
 
-      localStorage.setItem('access_token', mockToken);
+      localStorage.setItem('access_token', mockToken); // JWT TOKEN
       console.log('Mock JWT stored:', mockToken);
+
+      localStorage.setItem('user_role', userPayload.role);
+      console.log('Mock role stored:', userPayload.role); // USER ROLE
     }
 
-    return of(loginSuccess);
+    if (loginSuccess) {
+      // ...
+      return of(loginSuccess);
+    } else {
+      return throwError(() => new Error('Login Failed'));
+    }
+
   }
 
   isLoggedIn(): boolean {
@@ -41,5 +51,6 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('access_token');
+    localStorage.removeItem('user_role');
   }
 }

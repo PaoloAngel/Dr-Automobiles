@@ -1,8 +1,20 @@
 <nav class="navbar navbar-expand navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-      <img src="path/to/logo.png" width="30" height="30" class="d-inline-block align-top" alt=""
-      [routerLink]="['/' + AppRoutes.HOME]"> Dr Automobile
-  </a>
+
+  <div class="brand-container">
+    <ul class="navbar-list d-flex align-items-center mb-0">
+      <li class="navbar-item">
+        <a class="navbar-brand" href="#" [routerLink]="['/' + AppRoutes.HOME]">
+          <img src="assets/images/DR-logo.png" class="navbar-logo" alt="">
+        </a>
+      </li>
+      <li class="navbar-item">
+        <p class="mb-0 navbar-brand-name">Dr Automobile</p>
+      </li>
+    </ul>
+  </div>
+
+
+
   <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
           <li class="nav-item">

@@ -14,7 +14,7 @@ export class LoginComponent {
 
   loginForm = new FormGroup ({
     username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    password: new FormControl('', Validators.required),
   })
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -24,7 +24,8 @@ export class LoginComponent {
       const formValue = this.loginForm.value;
       const userPayload: IUserPayload = {
         username: formValue.username!,
-        password: formValue.password!
+        password: formValue.password!,
+        role: 'admin'
       };
       this.authService.login(userPayload).subscribe(loginSuccess => {
         if (loginSuccess) {
