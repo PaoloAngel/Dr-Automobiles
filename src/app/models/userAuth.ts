@@ -6,4 +6,5 @@ export interface IUserAuthData {
   displayName?: string;
   email?: string;
   iat?: number;
+  avatarUrl?: string;
 }

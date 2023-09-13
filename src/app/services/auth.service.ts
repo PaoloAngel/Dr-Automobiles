@@ -48,7 +48,7 @@ export class AuthService {
       }),
       catchError(error => {
         console.error('Error loading auth data:', error);
-        return throwError(() => new Error('Error loading auth data'));
+        return throwError(() => new Error('User Auth NOT NOT data stored'));
       })
     );
   }
