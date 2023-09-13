@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';  // Import Router from @angular/router
+import { Router } from '@angular/router';
 import { AppRoutes } from 'src/app/app-routing.module';
 import { IUserPayload } from 'src/app/models/userPayload';
 import { AuthService } from 'src/app/services/auth.service';

@@ -28,10 +28,13 @@
           </li>
       </ul>
   </div>
-  <div class="navbar-text ml-auto user-profile">
-      Nome e Cognome
-      <img src="path/to/avatar.png" width="30" height="30" class="d-inline-block align-top" alt="">
-  </div>
+  <div *ngIf="userProfile" class="d-flex justify-content-center navbar-text ml-auto user-profile">
+    <ul class="d-flex">
+      <li>{{ userProfile.name }}</li>
+      <li>{{ userProfile.surname }}</li>
+    </ul>
+    <img src="path/to/avatar.png" width="30" height="30" class="d-inline-block align-top" alt="">
+ </div>
 </nav>
 
 

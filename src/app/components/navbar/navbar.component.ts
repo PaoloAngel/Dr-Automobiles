@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AppRoutes } from 'src/app/app-routing.module';
+import { AuthService } from 'src/app/services/auth.service';
+import { IUserAuthData } from 'src/app/models/userAuth';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +10,20 @@ import { AppRoutes } from 'src/app/app-routing.module';
 })
 export class NavbarComponent {
 
-AppRoutes = AppRoutes
+  userProfile: IUserAuthData | null = null;
 
+  constructor(private authService: AuthService){
+    this.loadUserData();
+  }
+
+  loadUserData(){
+    const authData = localStorage.getItem('user_auth_data');
+    if(authData){
+      this.userProfile = JSON.parse(authData);
+      console.log('User Profile Loaded:', this.userProfile);
+    }
+  }
+
+
+AppRoutes = AppRoutes
 }
