@@ -17,28 +17,32 @@ export class LoginComponent {
     password: new FormControl('', Validators.required),
   })
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private readonly authService: AuthService, private readonly router: Router) {}
 
-  onSubmitLoginForm(){
-    if(this.loginForm.valid){
-      const formValue = this.loginForm.value;
-      const userPayload: IUserPayload = {
-        username: formValue.username!,
-        password: formValue.password!,
-        role: 'admin'
-      };
-      this.authService.login(userPayload).subscribe(loginSuccess => {
-        if (loginSuccess) {
-          console.log('Login successful');
-          this.router.navigate([AppRoutes.HOME]);
-        } else {
-          console.error('Invalid username or password');
-        }
-      });
-    } else {
+  onSubmitLoginForm() {
+    if (this.loginForm.invalid) {
       console.error('Form is not valid');
+      return;
     }
+
+    const formValue = this.loginForm.value;
+    const userPayload: IUserPayload = {
+      username: formValue.username!,
+      password: formValue.password!,
+      role: 'admin'
+    };
+
+    this.authService.login(userPayload).subscribe(loginSuccess => {
+      if (loginSuccess) {
+        console.log('Login successful');
+        this.router.navigate([AppRoutes.HOME]);
+      } else {
+        console.error('Invalid username or password');
+      }
+    });
   }
+
+
   logout(){
   }
 }

@@ -4,6 +4,7 @@ import { Observable, catchError, map, of, tap, throwError } from 'rxjs';
 import { jwtToken } from '../environments/mockJWT';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from './user.service';
 
 
 @Injectable({
@@ -13,7 +14,10 @@ export class AuthService {
 
   loggedIn = false
 
-  constructor(private jwtHelper: JwtHelperService, private http: HttpClient) { }
+  constructor(
+    private jwtHelper: JwtHelperService,
+    private http: HttpClient,
+    private userService: UserService) { }
 
 
   login(userPayload: IUserPayload): Observable<boolean> {
@@ -40,19 +44,31 @@ export class AuthService {
     }
   }
 
-  private userAuthData(): Observable<any> {
-    return this.http.get('/assets/data/auth.json').pipe(
-      tap((authData: any) => {
-        localStorage.setItem('user_auth_data', JSON.stringify(authData));
-        console.log('User Auth data stored:', authData);
-      }),
-      catchError(error => {
-        console.error('Error loading auth data:', error);
-        return throwError(() => new Error('User Auth NOT NOT data stored'));
-      })
-    );
-  }
+private userAuthData(): Observable<any> {
+  return this.http.get('/assets/data/auth.json').pipe(
+    map((authData: any) => {
+      // Decode the JWT to get the user data
+      const decodedToken = this.jwtHelper.decodeToken(authData.jwt);
+      console.log('Decoded Token:', decodedToken);
 
+      // Store the decoded token in local storage
+      localStorage.setItem('user_auth_data', JSON.stringify(decodedToken));
+      return decodedToken;
+    }),
+    tap((decodedToken: any) => {
+      console.log('User Auth data stored:', decodedToken);
+      console.log('Name:', decodedToken.name);
+      console.log('Surname:', decodedToken.surname);
+
+      // Update the user data in the UserService
+      this.userService.updateUserAuthData(decodedToken);
+    }),
+    catchError(error => {
+      console.error('Error loading auth data:', error);
+      return throwError(() => new Error('User Auth data not stored'));
+    })
+  );
+}
 
 
   isLoggedIn(): boolean {
